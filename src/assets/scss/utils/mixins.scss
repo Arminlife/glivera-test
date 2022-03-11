@@ -1,0 +1,97 @@
+// px to rem
+@function rem($pixels, $context: $mainFontSize) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return $pixels / $context * 1rem;
+}
+
+@mixin size($width,$height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}
+}
+
+@mixin scroll($width:2px) {
+  &::-webkit-scrollbar-thumb {
+    background: #262626;
+		border-radius: 2px;
+  }
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $width;
+		background-color: #E9E9E9;
+  }
+}
+
+@mixin link {
+  font-size: rem(14);
+  color: #A2A2A2;
+  transition: all 0.2s linear;
+  &:hover{
+    color: #343434;
+  }
+}
+@mixin medium {
+	@media screen and  (min-width:1201px) and (max-width: 1300px){
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media screen and  (max-width: 1200px){
+		@content;
+	}
+}
+@mixin tablet-landscape {
+	@media screen and (min-width: 992px) and (max-width: 1199px){
+		@content;
+	}
+}
+@mixin tablet-phone {
+	@media screen and (max-width: 992px){
+		@content;
+	}
+}
+@mixin phone {
+	@media screen and (max-width:767px){
+		@content;
+	}
+}
+
+@mixin placeholder {
+	&::-webkit-input-placeholder { @content; }
+	&:-moz-placeholder           { @content; }
+	&::-moz-placeholder          { @content; }
+	&:-ms-input-placeholder      { @content; }  
+}
+
+@mixin centered($axis: 'both'){
+	position: absolute;
+
+	@if $axis == 'both'{
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	@if $axis == 'x'{
+		left: 50%;
+		transform:translateX(-50%);
+	}
+
+	@if $axis == 'y'{
+		top: 50%;
+		transform:translateY(-50%);
+	}
+}
+

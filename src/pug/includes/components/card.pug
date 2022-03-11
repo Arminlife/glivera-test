@@ -1,0 +1,26 @@
+.card__row
+  each card in [1,2,3,4,5,6,7,8]
+    .card
+      .card__head
+        span.card__label Скидка 20%
+      .card__image
+        img(src="assets/img/og_logo.jpg")
+      .card__body 
+        .card__category(href='#') Категория: 
+          span lipsum dolor
+        a.card__title(href="#") 
+          | Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, odit inventore
+      .card__footer
+        .card__footer_left
+          .card__old-price от $123 456
+          .card__big-price от $9 999 999
+        .card__footer_right
+          .card__favorite
+            svg
+              use(xlink:href="#heart")
+          .card__compare
+            svg
+              use(xlink:href="#compare")         
+          .card__add
+            svg
+              use(xlink:href="#plus")   
